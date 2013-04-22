@@ -23,6 +23,9 @@
 
 	.globl __start
 	.ent	__start
+	
+
+
 __start:
 	jal	main
 	move	$4,$0		
@@ -58,6 +61,14 @@ Add:
 	j 	$31
 	.end Add
 
+//	.globl Strncmp
+//	.ent Strncmp 
+//Strncmp:	
+//	addiu $2,$0,SC_Strncmp
+//	syscall	
+//	j 	$31
+//	.end  Strncmp
+//	
 	.globl Exit
 	.ent	Exit
 Exit:
@@ -217,6 +228,8 @@ Clock:
 	syscall
 	j       $31
 	.end Clock
+
+
 
 /* dummy function to keep gcc happy */
         .globl  __main

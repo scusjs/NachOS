@@ -1,4 +1,4 @@
-/* syscalls.h 
+/* syscall.h 
  * 	Nachos system call interface.  These are Nachos kernel operations
  * 	that can be invoked from user programs, by trapping to the kernel
  *	via the "syscall" instruction.
@@ -41,6 +41,7 @@
 #define SC_Clock        20
 
 #define SC_Add		42
+#define SC_Strncmp    43 
 
 #ifndef IN_ASM
 
@@ -210,6 +211,12 @@ void Ipc(int sendDescriptor, SpaceId r_space, ThreadId r_thread,
  * returns the current cycle counter.
  */
 unsigned int Clock();
+
+
+/*
+ *compare str and buffer to find if buffer is "exit" command
+ */
+int Strncmp(char *buffer,char* str,int size);
 
 #endif /* IN_ASM */
 
