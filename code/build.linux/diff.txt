@@ -1,0 +1,20 @@
+﻿这个文件是对nachos4.1为在gcc4.4及以上版本中能够编译通过而做的改动的说明。
+Author：屈鹏
+
+
+
+以下内容以code为根目录。
+
+1. /lib下添加头文件iostream.h。
+
+2. /build.linux下产生的Makefile中，CFLAGS中去掉-fwritable-strings。
+
+3. /lib/list.cc中，对所有模板类中不依赖模板参数的成员添加了this指针。
+
+4. /lib/sysdep.cc中491行注释掉了一个断言，不然虽能够通过编译，但是运行中断言错误。
+
+5. coff2noff目录下，noff.h头文件被/userprog/noff.h文件取代。
+
+
+
+Date:13.2.5
