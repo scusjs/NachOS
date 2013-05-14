@@ -53,8 +53,8 @@ come on yaan.
 */
 void ExceptionHandler(ExceptionType which)
 {
-    int type = kernel->machine->ReadRegister(2); //»ñÈ¡ÏµÍ³µ÷ÓÃ´úÂë
-    //ÏµÍ³µ÷ÓÃ´úÂëSC_Halt´æ·ÅÔÚr2¼Ä´æÆ÷ÖÐ
+    int type = kernel->machine->ReadRegister(2); //ï¿½ï¿½È¡ÏµÍ³ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½
+    //ÏµÍ³ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½SC_Haltï¿½ï¿½ï¿½ï¿½ï¿½ï¿½r2ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 
     DEBUG(dbgSys, "Received Exception " << which << " type: " << type << "\n");
 
@@ -156,7 +156,7 @@ void ExceptionHandler(ExceptionType which)
 			/* set next programm counter for brach execution */
 			kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);
 		}
-		Return;
+		return;
 		ASSERTNOTREACHED();
 		break;
 	case SC_Strncmp:
@@ -179,7 +179,7 @@ void ExceptionHandler(ExceptionType which)
 		}while(e<60);
 		--addressFive;
 		int n3; 
-		n=SysStrncmp(str1buffer,str2buffer,kernel->machine->ReadRegister(6));
+		n3=SysStrncmp(str1buffer,str2buffer,kernel->machine->ReadRegister(6));
 		kernel->machine->WriteRegister(2,n3);
 		/* Modify return point */
 		{
@@ -196,7 +196,7 @@ void ExceptionHandler(ExceptionType which)
 
 	
 		
-	case SC_Halt:                 //½øÐÐååHaltÏµÍ³µ÷ÓÃ
+	case SC_Halt:                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HaltÏµÍ³ï¿½ï¿½ï¿½ï¿½
 		DEBUG(dbgSys, "Shutdown, initiated by user program.\n");
 
 		SysHalt();
